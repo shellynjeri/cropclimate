@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropClimate | Agricultural Insights</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            🌱 <span>CropClimate</span>
+        </div>
+
+        <p class="side-label">MAIN MENU</p>
+
+        <nav>
+             <button class="nav-btn active" data-page="dashboard">
+                ▦ Dashboard
+            </button>
+
+            <button class="nav-btn" data-page="analyse">
+                📊 Analyse Crops
+            </button>
+
+            <button class="nav-btn" data-page="history">
+                ◷ Assessment History
+            </button>
+
+            <button class="nav-btn" data-page="about">
+                ⓘ About
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>🌤️</p>
+            <strong>Plan Ahead</strong>
+            <small>Understand agricultural risks before harvest.</small>
+        </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <p class="subtitle">KENYA AGRICULTURAL INSIGHTS</p>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+
+            <span class="prototype">● Prototype Mode</span>
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page active">
+
+            <div class="welcome">
+                <div>
+                    <h2>Welcome to CropClimate 🌱</h2>
+                    <p>Monitor sample climate conditions and explore crop vulnerability.</p>
+                </div>
+
+                <button class="primary-btn" data-go="analyse">
+                    + New Assessment
+                </button>
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat-card">
+                    <p>Sample Counties</p>
+                    <h2>8</h2>
+                    <small>Available in this prototype</small>
+                </div>
+
+                <div class="stat-card">
+                    <p>Crop Types</p>
+                    <h2>7</h2>
+                    <small>Available for analysis</small>
+                </div>
+
+                <div class="stat-card">
+                    <p>Assessments</p>
+                    <h2 id="totalAssessments">0</h2>
+                    <small>Your saved assessments</small>
+                </div>
+
+                <div class="stat-card">
+                    <p>Latest Risk</p>
+                    <h2 id="latestRisk">—</h2>
+                    <small>Latest assessment result</small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="card">
+                    <h3>Quick Crop Analysis</h3>
+                    <p>Select your agricultural details.</p>
+
+                    <form id="quickForm">
+
+                        <label>County</label>
+                        <select id="quickCounty"></select>
+
+                        <label>Crop</label>
+                        <select id="quickCrop"></select>
+
+                        <label>Growing Season</label>
+                        <select id="quickSeason">
+                            <option>Long Rains</option>
+                            <option>Short Rains</option>
+                            <option>Dry Season</option>
+                        </select>
+
+                        <button class="primary-btn full-btn">
+                            Analyse Now →
+                        </button>
+
+                    </form>
+                </div>
+
+
+                <div class="card">
+                    <h3>How CropClimate Works</h3>
+
+                    <div class="step">
+                        <span>1</span>
+                        <div>
+                            <strong>Select a County</strong>
+                            <p>Choose your agricultural location.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span>2</span>
+                        <div>
+                            <strong>Analyse Climate Data</strong>
+                            <p>Review rainfall, temperature and soil moisture.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span>3</span>
+                        <div>
+                            <strong>Get Results</strong>
+                            <p>View vulnerability scores and recommendations.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+                <h3>Recent Assessments</h3>
+                <div id="recentAssessments">
+                    <p>No assessments available yet.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ANALYSIS PAGE -->
+        <section id="analyse" class="page">
+
+            <div class="card">
+                <h2>Crop Vulnerability Analysis</h2>
+                <p>Select the information below to analyse crop vulnerability.</p>
+
+                <form id="analysisForm">
+
+                    <label>County</label>
+                    <select id="county"></select>
+
+                    <label>Crop Type</label>
+                    <select id="crop"></select>
+
+                    <label>Growing Season</label>
+                    <select id="season">
+                        <option>Long Rains</option>
+                        <option>Short Rains</option>
+                        <option>Dry Season</option>
+                    </select>
+
+                    <div class="form-buttons">
+                        <button class="primary-btn" type="submit">
+                            Analyse Vulnerability
+                        </button>
+
+                        <button class="reset-btn" type="reset">
+                            Reset
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+
+            <div class="card results-card">
+                <h3>Analysis Results</h3>
+
+                <div id="results">
+                    <p>Your results will appear here after analysis.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY PAGE -->
+        <section id="history" class="page">
+
+            <div class="card">
+                <h2>Assessment History</h2>
+                <p>View your previously saved assessments.</p>
+
+                <button class="reset-btn" id="clearHistory">
+                    Clear History
+                </button>
+
+                <div id="historyList">
+                    <p>No saved assessments yet.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT PAGE -->
+        <section id="about" class="page">
+
+            <div class="card">
+                <h2>About CropClimate 🌱</h2>
+
+                <p>
+                    CropClimate is a web-based agricultural vulnerability
+                    prediction prototype designed to demonstrate how climate
+                    conditions can affect agricultural production.
+                </p>
+
+                <h3>Our Objectives</h3>
+
+                <ul>
+                    <li>Identify possible agricultural risks.</li>
+                    <li>Analyse rainfall and temperature conditions.</li>
+                    <li>Evaluate sample soil moisture levels.</li>
+                    <li>Provide adaptation recommendations.</li>
+                    <li>Help demonstrate climate-aware agricultural planning.</li>
+                </ul>
+
+                <div class="notice">
+                    <strong>Prototype notice</strong>
+                    <p>
+                        This version uses illustrative sample data and
+                        demonstration calculations. It is not connected to
+                        live climate data or a validated prediction model.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            CropClimate © 2026 | Agricultural Vulnerability Prototype
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
